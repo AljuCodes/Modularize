@@ -7,6 +7,10 @@
 
 import UIKit
 
-class TicketListViewVC: ViewController {
+class TicketListViewVC: UIViewController {
 
+    override func viewDidLoad() {
+        
+    }
+    
 }

@@ -7,14 +7,60 @@
 
 import UIKit
 
-class TicketTableVIew: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+class TicketCollectionView: UIView, UICollectionViewDelegate {
+   
+    
+    public let collectionView: UICollectionView = {
+        let layout = UICollectionViewCompositionalLayout(
+            section: createHorizontalLayout()
+        )
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.register(
+            TicketCardCell.self,
+            forCellWithReuseIdentifier: TicketCardCell.cellIdentifier
+        )
+        cv.isScrollEnabled = false
+        return cv
+    }()
+        
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
+        addSubview(collectionView)
+        addConstraints()
     }
-    */
-
+    
+    static func createHorizontalLayout() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(1.0)
+            )
+        )
+        item.contentInsets = NSDirectionalEdgeInsets(top: 100, leading: 10, bottom: 10, trailing: 10)
+        
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize:  NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .fractionalHeight(0.8)
+            ),
+            subitems: [item]
+        )
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        return section
+    }
+    
+    private func addConstraints() {
+        addConstraintsToFullScreen(to: collectionView)
+         }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
+
+
+

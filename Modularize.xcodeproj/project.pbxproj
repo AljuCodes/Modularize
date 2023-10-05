@@ -7,15 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE49B1BD2AC6A874006F6399 /* TicketListViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49B1BC2AC6A874006F6399 /* TicketListViewVC.swift */; };
 		CE6072D42ABAC888002349B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6072D32ABAC888002349B9 /* AppDelegate.swift */; };
 		CE6072D62ABAC888002349B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6072D52ABAC888002349B9 /* SceneDelegate.swift */; };
-		CE6072D82ABAC888002349B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6072D72ABAC888002349B9 /* ViewController.swift */; };
-		CE6072DB2ABAC888002349B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6072D92ABAC888002349B9 /* Main.storyboard */; };
+		CE6072D82ABAC888002349B9 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6072D72ABAC888002349B9 /* MainVC.swift */; };
 		CE6072DD2ABAC889002349B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6072DC2ABAC889002349B9 /* Assets.xcassets */; };
 		CE6072E02ABAC889002349B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6072DE2ABAC889002349B9 /* LaunchScreen.storyboard */; };
 		CE6072EB2ABAC889002349B9 /* ModularizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6072EA2ABAC889002349B9 /* ModularizeTests.swift */; };
 		CE6072F52ABAC889002349B9 /* ModularizeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6072F42ABAC889002349B9 /* ModularizeUITests.swift */; };
 		CE6072F72ABAC889002349B9 /* ModularizeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6072F62ABAC889002349B9 /* ModularizeUITestsLaunchTests.swift */; };
+		CE6073052ABAC99D002349B9 /* TicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6073042ABAC99D002349B9 /* TicketModel.swift */; };
+		CE6073092ABB37E9002349B9 /* TicketCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6073082ABB37E9002349B9 /* TicketCard.swift */; };
+		CE60730B2ABB408F002349B9 /* TicketTableVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60730A2ABB408F002349B9 /* TicketTableVIew.swift */; };
+		CE60730E2ABB4214002349B9 /* TicketListVIewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60730D2ABB4214002349B9 /* TicketListVIewVM.swift */; };
+		CE6073112ABB49CB002349B9 /* ConstraintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6073102ABB49CB002349B9 /* ConstraintHelper.swift */; };
+		CE6073132ABC1F54002349B9 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6073122ABC1F54002349B9 /* CircularProgressView.swift */; };
+		CE6073152ABC2146002349B9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6073142ABC2146002349B9 /* Extensions.swift */; };
+		CE60731B2ABC7B88002349B9 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60731A2ABC7B88002349B9 /* CheckBox.swift */; };
+		CE60731D2ABC8234002349B9 /* sdfks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60731C2ABC8234002349B9 /* sdfks.swift */; };
+		CE754CF62ACC058900CBFDD5 /* SubTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE754CF52ACC058900CBFDD5 /* SubTicketVC.swift */; };
+		CEE09D832ABD6C0300E11DFD /* TicketTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE09D822ABD6C0300E11DFD /* TicketTVC.swift */; };
+		CEE09D852ABF381900E11DFD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE09D842ABF381900E11DFD /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE49B1BC2AC6A874006F6399 /* TicketListViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketListViewVC.swift; sourceTree = "<group>"; };
 		CE6072D02ABAC888002349B9 /* Modularize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modularize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6072D32ABAC888002349B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6072D52ABAC888002349B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE6072D72ABAC888002349B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE6072DA2ABAC888002349B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE6072D72ABAC888002349B9 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		CE6072DC2ABAC889002349B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE6072DF2ABAC889002349B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE6072E12ABAC889002349B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +61,18 @@
 		CE6072F02ABAC889002349B9 /* ModularizeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModularizeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6072F42ABAC889002349B9 /* ModularizeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModularizeUITests.swift; sourceTree = "<group>"; };
 		CE6072F62ABAC889002349B9 /* ModularizeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModularizeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CE6073042ABAC99D002349B9 /* TicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketModel.swift; sourceTree = "<group>"; };
+		CE6073082ABB37E9002349B9 /* TicketCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCard.swift; sourceTree = "<group>"; };
+		CE60730A2ABB408F002349B9 /* TicketTableVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketTableVIew.swift; sourceTree = "<group>"; };
+		CE60730D2ABB4214002349B9 /* TicketListVIewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketListVIewVM.swift; sourceTree = "<group>"; };
+		CE6073102ABB49CB002349B9 /* ConstraintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintHelper.swift; sourceTree = "<group>"; };
+		CE6073122ABC1F54002349B9 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		CE6073142ABC2146002349B9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CE60731A2ABC7B88002349B9 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		CE60731C2ABC8234002349B9 /* sdfks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sdfks.swift; sourceTree = "<group>"; };
+		CE754CF52ACC058900CBFDD5 /* SubTicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTicketVC.swift; sourceTree = "<group>"; };
+		CEE09D822ABD6C0300E11DFD /* TicketTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketTVC.swift; sourceTree = "<group>"; };
+		CEE09D842ABF381900E11DFD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +103,7 @@
 		CE6072C72ABAC888002349B9 = {
 			isa = PBXGroup;
 			children = (
+				CE60731C2ABC8234002349B9 /* sdfks.swift */,
 				CE6072D22ABAC888002349B9 /* Modularize */,
 				CE6072E92ABAC889002349B9 /* ModularizeTests */,
 				CE6072F32ABAC889002349B9 /* ModularizeUITests */,
@@ -99,10 +124,13 @@
 		CE6072D22ABAC888002349B9 /* Modularize */ = {
 			isa = PBXGroup;
 			children = (
+				CE60730F2ABB49AB002349B9 /* Managers */,
+				CE60730C2ABB41D8002349B9 /* ViewModel */,
+				CE6073072ABB2FE2002349B9 /* View */,
+				CE6073062ABB2FD0002349B9 /* Controllers */,
+				CE6073032ABAC983002349B9 /* Model */,
 				CE6072D32ABAC888002349B9 /* AppDelegate.swift */,
 				CE6072D52ABAC888002349B9 /* SceneDelegate.swift */,
-				CE6072D72ABAC888002349B9 /* ViewController.swift */,
-				CE6072D92ABAC888002349B9 /* Main.storyboard */,
 				CE6072DC2ABAC889002349B9 /* Assets.xcassets */,
 				CE6072DE2ABAC889002349B9 /* LaunchScreen.storyboard */,
 				CE6072E12ABAC889002349B9 /* Info.plist */,
@@ -125,6 +153,54 @@
 				CE6072F62ABAC889002349B9 /* ModularizeUITestsLaunchTests.swift */,
 			);
 			path = ModularizeUITests;
+			sourceTree = "<group>";
+		};
+		CE6073032ABAC983002349B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE6073042ABAC99D002349B9 /* TicketModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE6073062ABB2FD0002349B9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE6072D72ABAC888002349B9 /* MainVC.swift */,
+				CE49B1BC2AC6A874006F6399 /* TicketListViewVC.swift */,
+				CE754CF52ACC058900CBFDD5 /* SubTicketVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CE6073072ABB2FE2002349B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE6073082ABB37E9002349B9 /* TicketCard.swift */,
+				CE60730A2ABB408F002349B9 /* TicketTableVIew.swift */,
+				CE6073122ABC1F54002349B9 /* CircularProgressView.swift */,
+				CE60731A2ABC7B88002349B9 /* CheckBox.swift */,
+				CEE09D822ABD6C0300E11DFD /* TicketTVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE60730C2ABB41D8002349B9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE60730D2ABB4214002349B9 /* TicketListVIewVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE60730F2ABB49AB002349B9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CE6073102ABB49CB002349B9 /* ConstraintHelper.swift */,
+				CE6073142ABC2146002349B9 /* Extensions.swift */,
+				CEE09D842ABF381900E11DFD /* Constants.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +267,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					CE6072CF2ABAC888002349B9 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -233,7 +309,6 @@
 			files = (
 				CE6072E02ABAC889002349B9 /* LaunchScreen.storyboard in Resources */,
 				CE6072DD2ABAC889002349B9 /* Assets.xcassets in Resources */,
-				CE6072DB2ABAC888002349B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +333,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE6072D82ABAC888002349B9 /* ViewController.swift in Sources */,
+				CE6072D82ABAC888002349B9 /* MainVC.swift in Sources */,
+				CEE09D832ABD6C0300E11DFD /* TicketTVC.swift in Sources */,
+				CE6073132ABC1F54002349B9 /* CircularProgressView.swift in Sources */,
+				CE754CF62ACC058900CBFDD5 /* SubTicketVC.swift in Sources */,
+				CE60730E2ABB4214002349B9 /* TicketListVIewVM.swift in Sources */,
+				CE60730B2ABB408F002349B9 /* TicketTableVIew.swift in Sources */,
+				CE6073052ABAC99D002349B9 /* TicketModel.swift in Sources */,
+				CE60731D2ABC8234002349B9 /* sdfks.swift in Sources */,
+				CE6073152ABC2146002349B9 /* Extensions.swift in Sources */,
 				CE6072D42ABAC888002349B9 /* AppDelegate.swift in Sources */,
+				CE6073092ABB37E9002349B9 /* TicketCard.swift in Sources */,
+				CE60731B2ABC7B88002349B9 /* CheckBox.swift in Sources */,
+				CEE09D852ABF381900E11DFD /* Constants.swift in Sources */,
+				CE6073112ABB49CB002349B9 /* ConstraintHelper.swift in Sources */,
 				CE6072D62ABAC888002349B9 /* SceneDelegate.swift in Sources */,
+				CE49B1BD2AC6A874006F6399 /* TicketListViewVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +385,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CE6072D92ABAC888002349B9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE6072DA2ABAC888002349B9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CE6072DE2ABAC889002349B9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -352,6 +432,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -412,6 +493,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -442,7 +524,6 @@
 				INFOPLIST_FILE = Modularize/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +551,6 @@
 				INFOPLIST_FILE = Modularize/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
