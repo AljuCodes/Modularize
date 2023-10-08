@@ -12,6 +12,7 @@ class SubTicketVC: UIViewController {
     let vm: TicketListViewVM
     let mainTicketId : UUID
     let ticketCard: TicketCard
+    var refreshSuperTVCell: (() -> Void)
     let simpleView: UIView = {
         let view = UIView()
         view.backgroundColor = .red
@@ -21,14 +22,22 @@ class SubTicketVC: UIViewController {
     }()
     private let addNew = K.addNewTicket
     
-    init(vm: TicketListViewVM, id: UUID, refreshSuperTableView: @escaping () -> Void) {
+    init(
+        vm: TicketListViewVM,
+        id: UUID,
+        refreshSuperTableView: @escaping () -> Void,
+        refreshSuperTVCell: @escaping () -> Void
+    ) {
         
         self.vm = vm
         self.mainTicketId = id
-        let ticketModel = self.vm.getTicket(with: id)
+        self.refreshSuperTVCell = refreshSuperTVCell
+        
+        let ticketModel = self.vm.getTicket(id)
         ticketCard = TicketCard()
         
         super.init(nibName: nil, bundle: nil)
+        self.view.backgroundColor = .systemBackground
         ticketCard.translatesAutoresizingMaskIntoConstraints = false
         view.addSubviews(
             ticketCard
@@ -36,47 +45,63 @@ class SubTicketVC: UIViewController {
 //            simpleView
         )
         let ticketAtBlock = { ticketId in
-            return vm.getTicket(with: ticketId)
+            return vm.getTicket(ticketId)
                     }
-        let reloadCell = {
-//            collectionView.reloadItems(at: [indexPath])
+        let renameTitle: (String) -> Void = { text in
+            self.ticketCard.updateTitleLabel(titleLabel: text)
+            vm.renameTicketTitle(id: id, title: text)
         }
-        let appendTicket: (TicketModel) -> Void = { tm in
-            vm.appendTicket(with: tm, super: ticketModel.id)
+        let appendTicket: (String, UUID?) -> Void = { title, superId in
+            vm.appendTicket(title: title, superId: superId)
         }
         let deleteTicketAt: (UUID) -> Void = { id in
-            vm.deleteTicket(with: id, super: ticketModel.id)
+            vm.deleteTicket(id)
         }
         let checkBoxTapped: (UUID) -> Void = { id in
             vm.toggleTicketIsDone(id: id)
         }
         let calculateProgress: () -> String =  {
-            return ticketModel.progress(vm: vm)
+            return vm.getProgress(id)
         }
         let deleteCurrentTicket: () -> Void = {
-            DispatchQueue.main.async {
-                vm.deleteTicket(with: ticketModel.id)
-                refreshSuperTableView()
                 self.navigationController?.popViewController(animated: true)
+            refreshSuperTableView()
             }
             
-        }
         let pushToDetailScreen: (UUID, IndexPath) -> Void = { id, subIndexPath in
             let vc = SubTicketVC(vm: vm, id: id) {
-                self.ticketCard.subTicketTableView.reloadRows(at: [subIndexPath], with: .automatic)
+                vm.deleteTicket(id)
+                self.ticketCard.subTicketTableView.reloadData()
+            } refreshSuperTVCell: {
+                DispatchQueue.main.async {
+                    self.ticketCard.subTicketTableView.reloadRows(
+                        at: [subIndexPath],
+                        with: .automatic
+                    )
+                }
             }
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        let getTicketCount = {
+           return vm.getSubTicketCount(id)
+        }
+        let getSubTickets: (UUID) -> [TicketModel] = { id in
+            return vm.getSubTickets(id)
+        }
+        
         ticketCard.configure(
-            with: ticketModel,
+            title: ticketModel.title,
+            cardId: ticketModel.id,
             calculateProgress: calculateProgress,
             getTicketAtblock: ticketAtBlock,
-            reloadCell: reloadCell,
+            renameTitle: renameTitle,
             appendTicket: appendTicket,
             deleteTicketAt: deleteTicketAt,
             checkBoxTapped: checkBoxTapped,
             deleteCurrentTicket: deleteCurrentTicket,
-            pushToDetailScreen: pushToDetailScreen
+            getRealTimeTicketCount: getTicketCount,
+            pushToDetailScreen: pushToDetailScreen,
+            getSubTickets: getSubTickets
         )
         self.addConstraints()
     }
@@ -114,4 +139,15 @@ class SubTicketVC: UIViewController {
         navigationItem.title = "SubTickets"
         }
         
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if isMovingFromParent {
+            // This code will be executed when the view controller is popped
+            print("View controller is being popped!")
+            // Trigger your function here
+            self.refreshSuperTVCell()
+        }
+    }
+    
     }

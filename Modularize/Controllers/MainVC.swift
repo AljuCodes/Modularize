@@ -20,6 +20,7 @@ class MainScreenVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.addSubview(ticketCollectionView)
         ticketCollectionView.collectionView.delegate = self
         ticketCollectionView.collectionView.dataSource = self
@@ -38,8 +39,7 @@ class MainScreenVC: UIViewController {
         menuHandler = { action in
             if action.title == self.addNew {
                 let onOkay : (String) -> Void = { text in
-                    let newTicket = TicketModel(title: text,  tickets: [K.dummyId], isDone: false)
-                    self.vm.appendTicket(with: newTicket)
+                    self.vm.appendTicket(title: text, superId: nil)
                     self.ticketCollectionView.collectionView.reloadData()
                 }
                 let presentDialog = { alertDialogController in
@@ -97,51 +97,68 @@ extension MainScreenVC : UICollectionViewDelegate, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TicketCardCell.cellIdentifier, for: indexPath) as?  TicketCardCell else {
             fatalError("fatal error")
         }
+        let vm = self.vm
+        
         let ticketAtBlock = { ticketId in
-            return self.vm.getTicket(with: ticketId)
+            return vm.getTicket(ticketId)
                     }
-        let reloadCell = {
-            collectionView.reloadItems(at: [indexPath])
+        let renameTitle: (String) -> Void  = { text in
+            cell.ticketCard.updateTitleLabel(titleLabel: text)
+            vm.renameTicketTitle(id: ticketModel.id, title: text)
         }
-        let appendTicket: (TicketModel) -> Void = { tm in
-            self.vm.appendTicket(with: tm, super: ticketModel.id)
+        let appendTicket: (String, UUID?) -> Void = { title, superId in
+            vm.appendTicket(title: title, superId: superId)
         }
         let deleteTicketAt: (UUID) -> Void = { id in
-            self.vm.deleteTicket(with: id, super: ticketModel.id)
+            vm.deleteTicket(id)
         }
         let checkBoxTapped: (UUID) -> Void = { id in
-            self.vm.toggleTicketIsDone(id: id)
+            vm.toggleTicketIsDone(id: id)
         }
         let calculateProgress: () -> String =  {
-            return ticketModel.progress(vm: self.vm)
+            return vm.getProgress(ticketModel.id)
         }
         let deleteCurrentTicket: () -> Void = {
             DispatchQueue.main.async {
-                self.vm.deleteTicket(with: ticketModel.id)
+                self.vm.deleteTicket(ticketModel.id)
                 collectionView.deleteItems(at: [indexPath])
             }
         }
+            
         let pushToDetailScreen: (UUID, IndexPath) -> Void = { id, subIndexPath in
-            let vc = SubTicketVC(vm: self.vm, id: id){
+            let vc = SubTicketVC(vm: vm, id: id) {
+                vm.deleteTicket(id)
+                cell.ticketCard.subTicketTableView.reloadData()
+            } refreshSuperTVCell: {
                 DispatchQueue.main.async {
-                    
-                    print("Delete item in \(subIndexPath)")
-                    cell.ticketCard.subTicketTableView.deleteRows(at: [subIndexPath], with: .automatic)
+                    cell.ticketCard.subTicketTableView.reloadRows(
+                        at: [subIndexPath],
+                        with: .automatic
+                    )
                 }
             }
-           self.navigationController?.pushViewController(vc, animated: true)
-            
+            self.navigationController?.pushViewController(vc, animated: true)
         }
+        let getTicketCount = {
+            return vm.getSubTicketCount(ticketModel.id)
+        }
+        let getSubTickets: (UUID) -> [TicketModel] = { id in
+            return vm.getSubTickets(id)
+        }
+        
         cell.ticketCard.configure(
-            with: ticketModel,
+            title: ticketModel.title,
+            cardId: ticketModel.id,
             calculateProgress: calculateProgress,
             getTicketAtblock: ticketAtBlock,
-            reloadCell: reloadCell,
+            renameTitle: renameTitle,
             appendTicket: appendTicket,
             deleteTicketAt: deleteTicketAt,
             checkBoxTapped: checkBoxTapped,
             deleteCurrentTicket: deleteCurrentTicket,
-            pushToDetailScreen: pushToDetailScreen
+            getRealTimeTicketCount: getTicketCount,
+            pushToDetailScreen: pushToDetailScreen,
+            getSubTickets: getSubTickets
         )
         return cell
     }

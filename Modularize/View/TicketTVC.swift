@@ -32,7 +32,10 @@ class TicketTVC : UITableViewCell {
     
     @objc
     private func labelTapped(){
-        pushToDetailScreen?()
+        if(!checkBox.isChecked){
+            pushToDetailScreen?()
+        
+        }
     }
     
     let deleteButton: UIButton = {
@@ -47,16 +50,16 @@ class TicketTVC : UITableViewCell {
         return button
     }()
     
-    let arrowButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(systemName:"chevron.right")
-        button.setImage(image, for: .normal)
-        button.frame.size = CGSize(width: 40, height: 40)
-        button.imageView?.contentMode = .scaleToFill
-        button.isHidden = true
-        return button
-    }()
+//    let arrowButton: UIButton = {
+//        let button = UIButton()
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        let image = UIImage(systemName:"chevron.right")
+//        button.setImage(image, for: .normal)
+//        button.frame.size = CGSize(width: 40, height: 40)
+//        button.imageView?.contentMode = .scaleToFill
+//        button.isHidden = true
+//        return button
+//    }()
     
     
     @objc
@@ -96,7 +99,6 @@ class TicketTVC : UITableViewCell {
         cb.frame.size = CGSize(width: 40, height: 40)
         cb.translatesAutoresizingMaskIntoConstraints = false
 //        cb.backgroundColor = .magenta
-        cb.isHidden = true
         return cb
     }()
     
@@ -111,8 +113,9 @@ class TicketTVC : UITableViewCell {
             titleLabel
             ,
             deleteButton,
-            checkBox,
-            arrowButton
+            checkBox
+//            ,
+//            arrowButton
         )
         addConstraint()
         checkBox.setOnTap {
@@ -120,6 +123,7 @@ class TicketTVC : UITableViewCell {
         }
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
         titleLabel.addGestureRecognizer(tapGesture)
+//        arrowButton.addGestureRecognizer(tapGesture)
         deleteButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
         doubleTapGesture.numberOfTapsRequired = 2 // Set the number of taps required for a double tap
@@ -133,6 +137,7 @@ class TicketTVC : UITableViewCell {
         deleteTicket: @escaping ()-> Void,
         onCheckBoxTapped: @escaping ()-> Void,
         pushToDetailScreen: @escaping ()-> Void
+//        isCheckBoxShown: @escaping () -> Bool
     ){
         self.showToast = showToast
         self.deleteTicket = deleteTicket
@@ -140,13 +145,14 @@ class TicketTVC : UITableViewCell {
         self.pushToDetailScreen = pushToDetailScreen
         checkBox.isChecked = tm.isDone
         titleLabel.text = tm.title
-        if(tm.ticketCount() >= 2){
-            arrowButton.isHidden = false
-            checkBox.isChecked = true
-        } else {
-            arrowButton.isHidden = true
-            checkBox.isHidden = false
-        }
+//        if(isCheckBoxShown()){
+//            arrowButton.isHidden = true
+//            checkBox.isHidden = false
+//        } else {
+//            arrowButton.isHidden = false
+//            checkBox.isHidden = true
+//            
+//        }
     }
     
 
@@ -175,17 +181,17 @@ class TicketTVC : UITableViewCell {
 //
             
             deleteButton.trailingAnchor.constraint(equalTo: checkBox.leadingAnchor, constant: -6),
-            deleteButton.trailingAnchor.constraint(equalTo: arrowButton.leadingAnchor, constant: -6),
+//            deleteButton.trailingAnchor.constraint(equalTo: arrowButton.leadingAnchor, constant: -6),
             
             
 //            deleteButton.trailingAnchor.constraint(equalTo: checkBox.leadingAnchor),
             deleteButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             checkBox.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            arrowButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+//            arrowButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
 //
 //            checkBox.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             checkBox.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
-            arrowButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+//            arrowButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
         ])
     }
     

@@ -6,288 +6,137 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 
 final class TicketListViewVM {
     
-   static let dummySubTickets = [
-        TicketModel(
-            title: "Complete cooking with everything you ever wanted you knwo about the all blue, where all the sea comes together",
-            isDone: false
-        ),
-        TicketModel(
-            title: "Complete cooking",
-            isDone: true
-        ),
-            TicketModel(
-                title: "Complete cooking with everything you ever wanted you knwo about the all blue, where all the sea comes together",
-                isDone: false
-            ),
-            TicketModel(
-                title: "Complete cooking",
-                isDone: true
-            ),
-        
-        TicketModel(
-            title: "Complete cooking with everything you ever wanted you knwo about the all blue, where all the sea comes together",
-            isDone: true
-        ),
-        TicketModel(
-            title: "Complete cooking with everything you ever wanted you knwo about the all blue, where all the sea comes together",
-            isDone: false
-        ),
-       ]
+    private var tickets: [TicketModel] = []
     
-    private let firstKey : UUID
-    private let secondKey : UUID
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    private var ticketDictionary: [UUID : [TicketModel]] = [:]
-    
-    init(firstKey: UUID? = nil, secondKey: UUID? = nil) {
-        self.firstKey = firstKey ?? UUID()
-        self.secondKey = secondKey ?? UUID()
-        let dummyTicketIds = TicketListViewVM.dummySubTickets.compactMap({
-            return $0.id
-        })
-        self.ticketDictionary[self.firstKey] = [
-            TicketModel(
-            title: "Complete youtube tutorial",
-            tickets: dummyTicketIds,
-            isDone: true
-        ),
-            TicketModel(
-            title: "Complete youtube tutorial 2",
-            tickets: dummyTicketIds,
-            isDone: true
-        ),
-            TicketModel(
-            title: "Complete youtube tutorial 3",
-            isDone: true
-        ),
-            TicketModel(
-            title: "Complete youtube tutorial 4",
-            tickets: dummyTicketIds,
-            isDone: true
-        ),
-        ]
-        self.ticketDictionary[self.secondKey] = TicketListViewVM.dummySubTickets
-        self.ticketDictionary[self.secondKey]?.append(TicketModel(title: "Add new subTickets", isDone: false, id: K.dummyId))
-        
+    init() {
+        self.getAllTickets()
     }
+    func getAllTickets() {
+            let fetchRequest: NSFetchRequest<TicketModel> = TicketModel.fetchRequest()
+//            fetchRequest.predicate = NSPredicate(format: "superId == nil")
 
-
-    public func addBaseModelsAndReturnUUID()-> UUID {
-        if self.ticketDictionary.count > 0 {
-            fatalError("addBaseModelsAndReturnUUId method was called but found elements in ticketDictionary")
+            do {
+                let fetchedTickets = try context.fetch(fetchRequest)
+                self.tickets = fetchedTickets
+            } catch let error as NSError {
+                print("Could not fetch tickets. \(error), \(error.userInfo)")
+            }
         }
-        let id = UUID()
-        self.ticketDictionary[id]  = []
-        return id
+    
+    private func saveContext(){
+        do {
+           try context.save()
+        } catch {
+            fatalError("fatal error")
+        }
     }
     
-    public func addSubModelsAndReturnUUID()-> UUID {
-        if self.ticketDictionary.count >= 2 {
-            fatalError("addSubModelsAndReturnUUId method was called but found more than 1 elements in ticketDictionary")
-        }
-        let id = UUID()
-        self.ticketDictionary[id]  = []
-        return id
-    }
-    
-    public func appendTicket(with ticket: TicketModel, super superId: UUID? = nil)  {
-        
-        if (superId == nil) {
-            self.ticketDictionary[firstKey]?.append(ticket)
-        } else {
-            guard let superId = superId else {
-                fatalError("fatal error")
-            }
-            self.ticketDictionary[secondKey]?.append(ticket)
-
-            
-            // Check if the super ticket is in base
-            let baseCheckResult = checkIfBaseTicketsContainSuperandReturnIndex(superId)
-            if let ticketIndexInBase = baseCheckResult {
-                // if super is in base update its subticket list with new ticket id
-            (self.ticketDictionary[firstKey]?[ticketIndexInBase])!.appendTicket(with: ticket.id)
-                let tm = (self.ticketDictionary[firstKey]?[ticketIndexInBase])!
-                let isSuccessfull = tm.getTickets().contains{ id in
-                    id == ticket.id
-                }
-                if(!isSuccessfull){
-                    fatalError("error")
-                }
-                return
-            }
-            
-            
-            // Check if the super ticket is in sub
-            let subCheckResult = checkIfSubTicketsContainTicketIdAndReturnIndex(superId)
-            if let ticketIndexInBase = subCheckResult {
-                // if super is in sub update its subticket list with new ticket id
-            (self.ticketDictionary[secondKey]?[ticketIndexInBase])!.appendTicket(with: ticket.id)
-             
-                
-                return
-            }
-            
-            // If not in base and not in sub list which means this super ticket is in a special space
-//            let specialResultTuple = checkIfSpecialTicketsContainSuperandReturnPosAndIndex(superId)
-            fatalError("not found anywhere")
-        }
+    public func appendTicket(title: String, superId: UUID?)  {
+        let tm = TicketModel(
+            title: title,
+            isDone: false,
+            id: UUID(),
+            superId: superId,
+            context: context
+        )
+        tickets.append(tm)
+        saveContext()
      }
+    
+    public func findTicketIndexWithId(_ id: UUID) -> Int {
+       let tm =  tickets.firstIndex{ tm in
+            tm.id == id
+        }
+        guard let tm = tm else {
+            fatalError("look for shit")
+        }
+        return tm
+    }
     
     public func toggleTicketIsDone(id : UUID) {
+        let index = findTicketIndexWithId(id)
+        let item = tickets[index]
+        tickets[index].isDone.toggle()
+        // TODO: check if this is necesary
+        item.isDone.toggle()
+        saveContext()
+    }
+    
+    
+    public func renameTicketTitle(id : UUID, title: String) {
+        let index = findTicketIndexWithId(id)
+        let item = tickets[index]
+        tickets[index].title = title
+        // TODO: check if this is necesary
+        item.title = title
+        saveContext()
+    }
+    
+    
+    public func getSubTickets(_ id : UUID) -> [TicketModel] {
         
-        // Check if the super ticket is in sub
-        let subCheckResult = checkIfSubTicketsContainTicketIdAndReturnIndex(id)
-        if let ticketIndexInBase = subCheckResult {
-            // if super is in sub update its subticket list with new ticket id
-        (self.ticketDictionary[secondKey]?[ticketIndexInBase])!.toggleIsDone()
-            return
+        let subTickets = tickets.filter { tm in
+            tm.superId == id
         }
-        fatalError("Ticket is not found")
+        return subTickets
     }
-    
-    public func getSubTicketCount(id: UUID) -> Int {
-        // Check if the super ticket is in sub
-        let subCheckResult = checkIfSubTicketsContainTicketIdAndReturnIndex(id)
-        if let ticketIndexInSub = subCheckResult {
-            // if super is in sub update its subticket list with new ticket id
-           let ticketCount = (self.ticketDictionary[secondKey]?[ticketIndexInSub])!.ticketCount()
-            return ticketCount
-        }
-        fatalError("Ticket is not found")
-    }
-    
-    
-    public func deleteTicket(with id : UUID, super superId: UUID? = nil)  {
         
-        if (superId == nil) {
-            // if superId is nil then this is a superTicket so we can remove if from superCollection
-            self.ticketDictionary[firstKey]?.removeAll{ tm in
-                tm.id == id
-            }
-            return
-        } else {
-            guard let superId = superId else {
-                fatalError("fatal error")
-            }
-            // superId exists means that this ticket is a sub ticket
-            self.ticketDictionary[secondKey]?.removeAll{ tm in
-                tm.id == id
-            }
-            
-            // We need to remove the id from the superTicket subTicketId List
-            
-            // Check if the super ticket is in base
-            let baseCheckResult = checkIfBaseTicketsContainSuperandReturnIndex(superId)
-            if let ticketIndexInSuper = baseCheckResult {
-                // if super is in base update its subticket list with new ticket id
-            (self.ticketDictionary[firstKey]?[ticketIndexInSuper])!.removeTicket(with: id)
-                let tm = (self.ticketDictionary[firstKey]?[ticketIndexInSuper])!
-                let doesContain = tm.getTickets().contains{ ticketId in
-                    ticketId == id
-                }
-                if(doesContain){
-                    fatalError("error")
-                }
-                return
-            } else {
-                
-                // Check if the super ticket is in sub
-                let subCheckResult = checkIfSubTicketsContainTicketIdAndReturnIndex(superId)
-                if let ticketIndexInSub = subCheckResult {
-                    // if super is in sub update its subticket list with new ticket id
-                (self.ticketDictionary[secondKey]?[ticketIndexInSub])!.removeTicket(with: id)
-                    let tm = (self.ticketDictionary[secondKey]?[ticketIndexInSub])!
-                    let doesContain = tm.getTickets().contains{ ticketId in
-                        ticketId == id
-                    }
-                    if(doesContain){
-                        fatalError("error")
-                    }
-                    return
-                }
-                // If not in base and not in sub list which means this super ticket is in a special space
-    //            let specialResultTuple = checkIfSpecialTicketsContainSuperandReturnPosAndIndex(superId)
-                fatalError("not found anywhere")
-            }
-        }
-     }
-    
-    
-    private func checkIfBaseTicketsContainSuperandReturnIndex( _ superId: UUID) -> Int? {
-        let baseListIndex =  self.ticketDictionary[firstKey]?.firstIndex {
-            ticket  in
-            ticket.id == superId
-        }
-        return baseListIndex
+        public func getSubTicketCount(_ id: UUID) -> Int {
+            let subTickets = getSubTickets(id)
+            return subTickets.count
     }
     
-    private func checkIfSubTicketsContainTicketIdAndReturnIndex(_ subId: UUID) -> Int? {
-        let subListIndex =  self.ticketDictionary[secondKey]?.firstIndex {
-            ticket  in
-            ticket.id == subId
-        }
-        return subListIndex
-    }
-    
-    private func checkIfSpecialTicketsContainSuperandReturnPosAndIndex(_ superId: UUID)-> (Int, Int)? {
-        for i in 2...ticketDictionary.count - 1 {
+    public func deleteTicket(_ id : UUID)  {
+        let index = findTicketIndexWithId(id)
+        let item = tickets[index]
+        
+        let subTickets = getSubTickets(id)
+        tickets.removeAll{ tm in
+            tm.superId == id
 
-            guard let nthKey = (Array(self.ticketDictionary.keys) as [UUID]?)?[i] else {
-                fatalError("got into finding the nth key but not key not found in index \(i)")
-            }
-            
-            let nthSpecialListIndex =  self.ticketDictionary[nthKey]?.firstIndex {
-                ticket  in
-                ticket.id == superId
-            }
-            
-            if let nthSpecialListIndex = nthSpecialListIndex {
-             return (i, nthSpecialListIndex)
-            }
-            
         }
-        return nil
+        subTickets.forEach{ ST in
+            context.delete(ST)
+        }
+        tickets.remove(at: index)
+        context.delete(item)
+        saveContext()
     }
     
     public func getSuperTickets() -> [TicketModel] {
-        
-        guard let fTickets = ticketDictionary[firstKey] else {
-            fatalError("no TicketAvailable")
+        return tickets.filter{ tm in
+            tm.superId == nil
         }
-        return fTickets
     }
         
-    public func getTicket(with uuid: UUID) -> TicketModel {
-        
-       let ticketIfExistsInBase =  self.ticketDictionary[firstKey]?.first{
-            ticket in
-            ticket.id == uuid
-        }
-        
-        if let ticketIfExistsInBase = ticketIfExistsInBase {
-            return ticketIfExistsInBase
-        }
-        
-        let ticketIfExistsInSub =  self.ticketDictionary[secondKey]?.first{
-             ticket in
-             ticket.id == uuid
-         }
-        
-        if let ticketIfExistsInSub = ticketIfExistsInSub {
-            return ticketIfExistsInSub
-        }
-        
-        return TicketModel(title: "dummy", isDone: true)
+    public func getTicket(_ id: UUID) -> TicketModel {
+        let index = findTicketIndexWithId(id)
+        let item = tickets[index]
+        return item
     }
     
     public var superTicketCount: Int {
-        let firstKey = self.ticketDictionary.first?.key ?? addBaseModelsAndReturnUUID()
-        
-        return self.ticketDictionary[firstKey]?.count ?? 0
+        return getSuperTickets().count
     }
     
+    public func getProgress(_ id : UUID) -> String {
+        let subTickets = getSubTickets(id)
+        let completedTickets = subTickets.filter{ tm in
+            tm.isDone == true
+        }
+        if(subTickets.isEmpty || completedTickets.count == 0){
+            return "0"
+        }
+        let value =  (Float(completedTickets.count) / Float(subTickets.count))
+        print(value)
+        return String(describing: value * 100)
+    }
 }

@@ -10,20 +10,22 @@ import UIKit
 // refactor
 final class TicketCard: UIView {
  
-    private var ticketModel: TicketModel!
-    
+    private var title: String!
+    private var cardId: UUID!
     private var getTicketAtBlock: ((UUID) -> TicketModel)?
     
     private var menuHandler:  UIActionHandler?
     
-    private var reloadCell : (()-> Void)?
-    private var appendTicket: ((TicketModel) -> Void)?
+    private var renameTitle : ((String)-> Void)?
+    private var appendTicket: ((String, UUID?) -> Void)?
+    private var getRealTimeTicketCount : (() -> Int)?
     private var deleteTicketAt: ((UUID)-> Void)?
     private var checkBoxTapped: ((UUID)-> Void)?
     private var calculateProgress: (()-> String)?
     private var deleteCurrentTicket: (() -> Void)?
     private var pushToDetailScreen: ((UUID, IndexPath) -> Void)?
-    
+    private var getSubTickets : ((UUID) -> [TicketModel])?
+    private var subTickets: [TicketModel] = []
     
     let moreButton: UIButton = {
         let button = UIButton()
@@ -39,6 +41,9 @@ final class TicketCard: UIView {
         return button
     }()
     
+    public func updateTitleLabel( titleLabel: String){
+        self.titleLabel.text = titleLabel
+    }
     
     private let titleLabel : UILabel = {
         let label = UILabel()
@@ -78,16 +83,15 @@ final class TicketCard: UIView {
     
     private func showEditingDialog(){
         
-        let onOkay = { text in
-            self.ticketModel.setTitle(title: text)
-            self.reloadCell?()
+        let onOkay: (String) -> Void = { text in
+            self.renameTitle?(text)
         }
         let present : (UIAlertController) -> Void = { ac in
             self.window?.rootViewController?.present(ac, animated: true, completion: nil)
         }
         let onTextField: (UITextField) -> Void = { textField in
             textField.placeholder = "Enter text here"
-            textField.text = self.ticketModel.title
+            textField.text = self.title
         }
         showDialogForAddingNewTicket(
             onOkay: onOkay,
@@ -101,8 +105,7 @@ final class TicketCard: UIView {
            guard let self = self else {
                 return
             }
-            let newTicket = TicketModel(title: text,  tickets: [K.dummyId], isDone: false)
-            self.appendTicket?(newTicket)
+            self.appendTicket?(text, cardId)
             DispatchQueue.main.async {
                 self.subTicketTableView.reloadData()
             }
@@ -132,7 +135,7 @@ final class TicketCard: UIView {
           }
 
           alertController.addTextField { (textField) in
-              textField.placeholder = "Enter positive integer"
+              textField.placeholder = "Enter ticket count"
               textField.keyboardType = .numberPad
           }
 
@@ -155,12 +158,14 @@ final class TicketCard: UIView {
                               let generatedString = "\(inputString) \(i)"
                               strings.append(generatedString)
                           }
+                    guard let strongSelf = self else {
+                        fatalError("strong casting error")
+                    }
                     for title in strings {
-                        let tm =  TicketModel(title: title, tickets: [K.dummyId], isDone: false)
-                        self?.appendTicket?(tm)
+                        strongSelf.appendTicket?(title, strongSelf.cardId)
                     }
                     DispatchQueue.main.async {
-                        self?.subTicketTableView.reloadData()
+                        strongSelf.subTicketTableView.reloadData()
                     }
             }
         }
@@ -259,27 +264,34 @@ final class TicketCard: UIView {
     }
     
     public func configure(
-        with ticket: TicketModel,
+        title: String,
+        cardId: UUID,
         calculateProgress: @escaping () -> String,
         getTicketAtblock: @escaping (UUID) -> TicketModel,
-        reloadCell: @escaping ()-> Void,
-        appendTicket: @escaping (TicketModel) -> Void,
+        renameTitle: @escaping (String)-> Void,
+        appendTicket: @escaping (String, UUID?) -> Void,
         deleteTicketAt: @escaping (UUID) -> Void,
         checkBoxTapped: @escaping (UUID) -> Void,
         deleteCurrentTicket: @escaping ()-> Void,
-        pushToDetailScreen: @escaping (UUID, IndexPath)-> Void
+        getRealTimeTicketCount: @escaping ()-> Int,
+        pushToDetailScreen: @escaping (UUID, IndexPath)-> Void,
+        getSubTickets: @escaping (UUID) -> [TicketModel]
     ){
         self.calculateProgress = calculateProgress
         self.getTicketAtBlock = getTicketAtblock
-        self.reloadCell = reloadCell
+        self.renameTitle = renameTitle
         self.appendTicket = appendTicket
         self.deleteTicketAt = deleteTicketAt
         self.checkBoxTapped = checkBoxTapped
         self.deleteCurrentTicket = deleteCurrentTicket
         self.pushToDetailScreen = pushToDetailScreen
-        titleLabel.text = ticket.title
-        self.ticketModel = ticket
-        subTicketTableView.reloadData()
+        self.getRealTimeTicketCount = getRealTimeTicketCount
+        self.getSubTickets = getSubTickets
+        titleLabel.text = title
+        self.title = title
+        self.cardId = cardId
+        // TODO: check if this realy needed
+//        subTicketTableView.reloadData()
         circularProgressBarView.progressAnimation(
             value: Float(calculateProgress())!
         )
@@ -289,7 +301,14 @@ final class TicketCard: UIView {
 
 extension TicketCard : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = self.ticketModel.ticketCount()
+        
+        let subTickets = getSubTickets?(self.cardId)
+        guard let subTickets = subTickets else {
+            fatalError("Function did not return a proper list")
+        }
+        self.subTickets = subTickets
+        let count = subTickets.count
+        
 //        print("we got subTicketCount \(count) for ticket \(self.ticketModel.title)")
         if(count == 0){
             print("we got zero count")
@@ -304,11 +323,11 @@ extension TicketCard : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let ticketModelId = self.ticketModel.getTickets()[indexPath.row]
+        let cellTMId = subTickets[indexPath.row].id
         
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: TicketTVC.cellIdentifier,
-            for: indexPath) as? TicketTVC, let ticketModel = getTicketAtBlock?(ticketModelId)
+            for: indexPath) as? TicketTVC, let ticketModel = getTicketAtBlock?(cellTMId)
                else {
                    return UITableViewCell()
                }
@@ -317,12 +336,16 @@ extension TicketCard : UITableViewDelegate, UITableViewDataSource {
         cell.configure(tm:  ticketModel){ 
             super.showToast(message: "Double tap to delete", duration: 500)
         } deleteTicket: {
-            self.deleteTicketAt?(ticketModelId)
+            self.deleteTicketAt?(cellTMId)
             DispatchQueue.main.async {
                 tableView.reloadData()
             }
-        } onCheckBoxTapped: {
-            self.checkBoxTapped?(ticketModelId)
+        } onCheckBoxTapped: { [weak self] in
+            guard let self = self else {
+                fatalError("got weak self")
+            }
+            self.checkBoxTapped?(cellTMId)
+            subTickets[indexPath.row].isDone.toggle()
             let newProgress = self.calculateProgress?()
             guard let newProgress = newProgress, let value = Float(newProgress) else {
                 fatalError("cannot convert value")
@@ -334,8 +357,9 @@ extension TicketCard : UITableViewDelegate, UITableViewDataSource {
                 )
             }
         } pushToDetailScreen: {
-            self.pushToDetailScreen?(ticketModel.id, indexPath)
+            self.pushToDetailScreen?(cellTMId, indexPath)
         }
+        print("the cell with title \(ticketModel.title) is getting rebuild where isDone is \(ticketModel.isDone)")
         return cell
     }
     private func randomColor()-> UIColor {

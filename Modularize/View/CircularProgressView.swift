@@ -44,7 +44,6 @@ class CircularProgressBarView: UIView {
     
     func createCircularPath() {
             // created circularPath for circleLayer and progressLayer
-        print(" frame width \(intrinsicContentSize.width) and frame height \(intrinsicContentSize.height)")
             let circularPath = UIBezierPath(
                 arcCenter: CGPoint(
                     x: 30,

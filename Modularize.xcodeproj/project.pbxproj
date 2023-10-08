@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE49B1BD2AC6A874006F6399 /* TicketListViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49B1BC2AC6A874006F6399 /* TicketListViewVC.swift */; };
+		CE0B9FAD2ACFEFBB0018B962 /* TicketModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE0B9FAB2ACFEFBB0018B962 /* TicketModel.xcdatamodeld */; };
+		CE0B9FB02AD035B60018B962 /* TicketModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0B9FAE2AD035B60018B962 /* TicketModel+CoreDataClass.swift */; };
+		CE0B9FB12AD035B60018B962 /* TicketModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0B9FAF2AD035B60018B962 /* TicketModel+CoreDataProperties.swift */; };
 		CE6072D42ABAC888002349B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6072D32ABAC888002349B9 /* AppDelegate.swift */; };
 		CE6072D62ABAC888002349B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6072D52ABAC888002349B9 /* SceneDelegate.swift */; };
 		CE6072D82ABAC888002349B9 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6072D72ABAC888002349B9 /* MainVC.swift */; };
@@ -48,7 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CE49B1BC2AC6A874006F6399 /* TicketListViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketListViewVC.swift; sourceTree = "<group>"; };
+		CE0B9FAC2ACFEFBB0018B962 /* TicketModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TicketModel.xcdatamodel; sourceTree = "<group>"; };
+		CE0B9FAE2AD035B60018B962 /* TicketModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE0B9FAF2AD035B60018B962 /* TicketModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE6072D02ABAC888002349B9 /* Modularize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modularize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6072D32ABAC888002349B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6072D52ABAC888002349B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE0B9FB32AD0361F0018B962 /* TicketModelItems */ = {
+			isa = PBXGroup;
+			children = (
+				CE0B9FAE2AD035B60018B962 /* TicketModel+CoreDataClass.swift */,
+				CE0B9FAF2AD035B60018B962 /* TicketModel+CoreDataProperties.swift */,
+				CE0B9FAB2ACFEFBB0018B962 /* TicketModel.xcdatamodeld */,
+			);
+			path = TicketModelItems;
+			sourceTree = "<group>";
+		};
 		CE6072C72ABAC888002349B9 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +138,7 @@
 		CE6072D22ABAC888002349B9 /* Modularize */ = {
 			isa = PBXGroup;
 			children = (
+				CE0B9FB32AD0361F0018B962 /* TicketModelItems */,
 				CE60730F2ABB49AB002349B9 /* Managers */,
 				CE60730C2ABB41D8002349B9 /* ViewModel */,
 				CE6073072ABB2FE2002349B9 /* View */,
@@ -167,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				CE6072D72ABAC888002349B9 /* MainVC.swift */,
-				CE49B1BC2AC6A874006F6399 /* TicketListViewVC.swift */,
 				CE754CF52ACC058900CBFDD5 /* SubTicketVC.swift */,
 			);
 			path = Controllers;
@@ -340,15 +354,17 @@
 				CE60730E2ABB4214002349B9 /* TicketListVIewVM.swift in Sources */,
 				CE60730B2ABB408F002349B9 /* TicketTableVIew.swift in Sources */,
 				CE6073052ABAC99D002349B9 /* TicketModel.swift in Sources */,
+				CE0B9FB02AD035B60018B962 /* TicketModel+CoreDataClass.swift in Sources */,
 				CE60731D2ABC8234002349B9 /* sdfks.swift in Sources */,
 				CE6073152ABC2146002349B9 /* Extensions.swift in Sources */,
 				CE6072D42ABAC888002349B9 /* AppDelegate.swift in Sources */,
 				CE6073092ABB37E9002349B9 /* TicketCard.swift in Sources */,
 				CE60731B2ABC7B88002349B9 /* CheckBox.swift in Sources */,
+				CE0B9FAD2ACFEFBB0018B962 /* TicketModel.xcdatamodeld in Sources */,
 				CEE09D852ABF381900E11DFD /* Constants.swift in Sources */,
 				CE6073112ABB49CB002349B9 /* ConstraintHelper.swift in Sources */,
 				CE6072D62ABAC888002349B9 /* SceneDelegate.swift in Sources */,
-				CE49B1BD2AC6A874006F6399 /* TicketListViewVC.swift in Sources */,
+				CE0B9FB12AD035B60018B962 /* TicketModel+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,6 +698,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CE0B9FAB2ACFEFBB0018B962 /* TicketModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CE0B9FAC2ACFEFBB0018B962 /* TicketModel.xcdatamodel */,
+			);
+			currentVersion = CE0B9FAC2ACFEFBB0018B962 /* TicketModel.xcdatamodel */;
+			path = TicketModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CE6072C82ABAC888002349B9 /* Project object */;
 }
