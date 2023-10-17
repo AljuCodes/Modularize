@@ -22,6 +22,8 @@ class SubTicketVC: UIViewController {
     }()
     private let addNew = K.addNewTicket
     
+    
+    
     init(
         vm: TicketListViewVM,
         id: UUID,
@@ -88,7 +90,6 @@ class SubTicketVC: UIViewController {
         let getSubTickets: (UUID) -> [TicketModel] = { id in
             return vm.getSubTickets(id)
         }
-        
         ticketCard.configure(
             title: ticketModel.title,
             cardId: ticketModel.id,
@@ -108,15 +109,6 @@ class SubTicketVC: UIViewController {
     
     private func addConstraints(){
         NSLayoutConstraint.activate([
-//            ticketCard.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8),
-
-//            ticketCard.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-//            ticketCard.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 20),
-//            ticketCard.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-//            ticketCard.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 20),
-
-//            ticketCard.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-            
             ticketCard.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6),
             ticketCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             ticketCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -137,8 +129,10 @@ class SubTicketVC: UIViewController {
             NSAttributedString.Key.foregroundColor: UIColor.white
         ]
         navigationItem.title = "SubTickets"
-        }
+        K.addGradient(view: view)
+    }
         
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
@@ -151,3 +145,5 @@ class SubTicketVC: UIViewController {
     }
     
     }
+
+

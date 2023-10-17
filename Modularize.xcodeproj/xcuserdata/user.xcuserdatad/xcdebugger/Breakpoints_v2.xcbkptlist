@@ -14,8 +14,8 @@
             filePath = "Modularize/View/TicketTableVIew.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "init(frame:)"
             landmarkType = "7">
             <Locations>
@@ -78,8 +78,8 @@
             filePath = "Modularize/View/TicketTVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "addConstraint()"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,25 +94,9 @@
             filePath = "Modularize/Controllers/MainVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "collectionView(_:numberOfItemsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6AFF0D3A-F3C0-45A4-9261-7DC6EC25BFDC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Modularize/View/TicketCard.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -126,8 +110,8 @@
             filePath = "Modularize/View/TicketCard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,9 +126,9 @@
             filePath = "Modularize/View/TicketCard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290"
-            landmarkName = "configure(title:cardId:calculateProgress:getTicketAtblock:reloadCell:appendTicket:deleteTicketAt:checkBoxTapped:deleteCurrentTicket:getRealTimeTicketCount:pushToDetailScreen:getSubTickets:)"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "configure(title:cardId:calculateProgress:getTicketAtblock:renameTitle:appendTicket:deleteTicketAt:checkBoxTapped:deleteCurrentTicket:getRealTimeTicketCount:pushToDetailScreen:getSubTickets:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -158,25 +142,9 @@
             filePath = "Modularize/View/TicketCard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9A90FF68-DD01-41EA-82FC-E950C8588701"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Modularize/View/TicketCard.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "showAddNewDialog()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -190,8 +158,8 @@
             filePath = "Modularize/View/TicketTVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "handleDoubleTap(_:)"
             landmarkType = "7">
             <Locations>
@@ -253,8 +221,8 @@
             filePath = "Modularize/View/TicketCard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -309,22 +277,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "228E9D77-CEC3-40DC-861E-A963DBA26C31"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Modularize/View/TicketCard.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "setupLayer()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "FBBADAD8-3FAB-4C8B-BF0D-FDB8698DF802"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -332,8 +284,8 @@
             filePath = "Modularize/ViewModel/TicketListVIewVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "getTicket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -348,8 +300,8 @@
             filePath = "Modularize/Controllers/MainVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
             <Locations>
@@ -389,54 +341,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DFA37E65-ADD0-4C84-9CE1-522DFD387FFC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Modularize/View/TicketCard.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5A68302B-1EF1-4FC9-870B-EE9B265791B9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Modularize/View/TicketCard.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "showBatchAddDialog()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D6559AC4-80EB-45A7-9D60-58F4372EFCE8"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Modularize/View/TicketCard.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "showBatchAddDialog()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "8819C209-0278-4C7F-9A75-9C47DC9B513D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -460,8 +364,8 @@
             filePath = "Modularize/ViewModel/TicketListVIewVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "getProgress(_:)"
             landmarkType = "7">
             <Locations>
@@ -523,8 +427,8 @@
             filePath = "Modularize/ViewModel/TicketListVIewVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "getProgress(_:)"
             landmarkType = "7">
             <Locations>
@@ -586,8 +490,8 @@
             filePath = "Modularize/ViewModel/TicketListVIewVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "getProgress(_:)"
             landmarkType = "7">
             <Locations>
@@ -649,8 +553,8 @@
             filePath = "Modularize/ViewModel/TicketListVIewVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "getProgress(_:)"
             landmarkType = "7">
             <Locations>
@@ -712,8 +616,8 @@
             filePath = "Modularize/ViewModel/TicketListVIewVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "getProgress(_:)"
             landmarkType = "7">
             <Locations>
@@ -748,6 +652,261 @@
                   offsetFromSymbolStart = "432">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B79DFC5F-CA9A-4F5F-B843-6AA156F6E765"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modularize/View/TicketTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "TicketTVC"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8226E1BE-D32E-473B-96D6-BBD087DC2542"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modularize/View/TicketCard.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "init(frame:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AF04A10-6F4A-4870-B0D6-C325CF40E81D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modularize/View/TicketCard.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "configure(title:cardId:calculateProgress:getTicketAtblock:renameTitle:appendTicket:deleteTicketAt:checkBoxTapped:deleteCurrentTicket:getRealTimeTicketCount:pushToDetailScreen:getSubTickets:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2AF04A10-6F4A-4870-B0D6-C325CF40E81D - bd8e6b712f955dfd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Modularize.TicketCard.configure(title: Swift.String, cardId: Foundation.UUID, calculateProgress: () -&gt; Swift.String, getTicketAtblock: (Foundation.UUID) -&gt; Modularize.TicketModel, renameTitle: (Swift.String) -&gt; (), appendTicket: (Swift.String, Swift.Optional&lt;Foundation.UUID&gt;) -&gt; (), deleteTicketAt: (Foundation.UUID) -&gt; (), checkBoxTapped: (Foundation.UUID) -&gt; (), deleteCurrentTicket: () -&gt; (), getRealTimeTicketCount: () -&gt; Swift.Int, pushToDetailScreen: (Foundation.UUID, Foundation.IndexPath) -&gt; (), getSubTickets: (Foundation.UUID) -&gt; Swift.Array&lt;Modularize.TicketModel&gt;) -&gt; ()"
+                  moduleName = "Modularize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/development/IOS%20DEV/Modularize/Modularize/View/TicketCard.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "300"
+                  endingLineNumber = "300"
+                  offsetFromSymbolStart = "652">
+               </Location>
+               <Location
+                  uuid = "2AF04A10-6F4A-4870-B0D6-C325CF40E81D - bd8e6b712f955ce6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Modularize.TicketCard.configure(title: Swift.String, cardId: Foundation.UUID, calculateProgress: () -&gt; Swift.String, getTicketAtblock: (Foundation.UUID) -&gt; Modularize.TicketModel, renameTitle: (Swift.String) -&gt; (), appendTicket: (Swift.String, Swift.Optional&lt;Foundation.UUID&gt;) -&gt; (), deleteTicketAt: (Foundation.UUID) -&gt; (), checkBoxTapped: (Foundation.UUID) -&gt; (), deleteCurrentTicket: () -&gt; (), getRealTimeTicketCount: () -&gt; Swift.Int, pushToDetailScreen: (Foundation.UUID, Foundation.IndexPath) -&gt; (), getSubTickets: (Foundation.UUID) -&gt; Swift.Array&lt;Modularize.TicketModel&gt;) -&gt; ()"
+                  moduleName = "Modularize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/development/IOS%20DEV/Modularize/Modularize/View/TicketCard.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "293"
+                  endingLineNumber = "293"
+                  offsetFromSymbolStart = "652">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6885D6E5-AD28-40B3-8750-99991A4AD10C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modularize/View/TicketTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "addConstraint()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D75267A2-E455-4E0F-9954-938A5408551A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modularize/View/TicketCard.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D75267A2-E455-4E0F-9954-938A5408551A - 6b1fb4ac26bd96a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Modularize.TicketCard.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "Modularize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/development/IOS%20DEV/Modularize/Modularize/View/TicketCard.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "274"
+                  endingLineNumber = "274"
+                  offsetFromSymbolStart = "5824">
+               </Location>
+               <Location
+                  uuid = "D75267A2-E455-4E0F-9954-938A5408551A - 6b1fb4ac26bd9648"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Modularize.TicketCard.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "Modularize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/development/IOS%20DEV/Modularize/Modularize/View/TicketCard.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "275"
+                  endingLineNumber = "275"
+                  offsetFromSymbolStart = "5348">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A57DECB2-F7FE-42C9-9832-FD266A3EFC86"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modularize/Controllers/MainVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3CCE8E1A-3D5F-4D64-A249-EA0C76D0FF62"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modularize/View/TicketCard.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "configure(title:cardId:calculateProgress:getTicketAtblock:renameTitle:appendTicket:deleteTicketAt:checkBoxTapped:deleteCurrentTicket:getRealTimeTicketCount:pushToDetailScreen:getSubTickets:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3CCE8E1A-3D5F-4D64-A249-EA0C76D0FF62 - bd8e6b712f954c81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Modularize.TicketCard.configure(title: Swift.String, cardId: Foundation.UUID, calculateProgress: () -&gt; Swift.String, getTicketAtblock: (Foundation.UUID) -&gt; Modularize.TicketModel, renameTitle: (Swift.String) -&gt; (), appendTicket: (Swift.String, Swift.Optional&lt;Foundation.UUID&gt;) -&gt; (), deleteTicketAt: (Foundation.UUID) -&gt; (), checkBoxTapped: (Foundation.UUID) -&gt; (), deleteCurrentTicket: () -&gt; (), getRealTimeTicketCount: () -&gt; Swift.Int, pushToDetailScreen: (Foundation.UUID, Foundation.IndexPath) -&gt; (), getSubTickets: (Foundation.UUID) -&gt; Swift.Array&lt;Modularize.TicketModel&gt;) -&gt; ()"
+                  moduleName = "Modularize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/development/IOS%20DEV/Modularize/Modularize/View/TicketCard.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "588">
+               </Location>
+               <Location
+                  uuid = "3CCE8E1A-3D5F-4D64-A249-EA0C76D0FF62 - bd8e6b712f954c81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Modularize.TicketCard.configure(title: Swift.String, cardId: Foundation.UUID, calculateProgress: () -&gt; Swift.String, getTicketAtblock: (Foundation.UUID) -&gt; Modularize.TicketModel, renameTitle: (Swift.String) -&gt; (), appendTicket: (Swift.String, Swift.Optional&lt;Foundation.UUID&gt;) -&gt; (), deleteTicketAt: (Foundation.UUID) -&gt; (), checkBoxTapped: (Foundation.UUID) -&gt; (), deleteCurrentTicket: () -&gt; (), getRealTimeTicketCount: () -&gt; Swift.Int, pushToDetailScreen: (Foundation.UUID, Foundation.IndexPath) -&gt; (), getSubTickets: (Foundation.UUID) -&gt; Swift.Array&lt;Modularize.TicketModel&gt;) -&gt; ()"
+                  moduleName = "Modularize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/development/IOS%20DEV/Modularize/Modularize/View/TicketCard.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "756">
+               </Location>
+               <Location
+                  uuid = "3CCE8E1A-3D5F-4D64-A249-EA0C76D0FF62 - bd8e6b712f954c81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Modularize.TicketCard.configure(title: Swift.String, cardId: Foundation.UUID, calculateProgress: () -&gt; Swift.String, getTicketAtblock: (Foundation.UUID) -&gt; Modularize.TicketModel, renameTitle: (Swift.String) -&gt; (), appendTicket: (Swift.String, Swift.Optional&lt;Foundation.UUID&gt;) -&gt; (), deleteTicketAt: (Foundation.UUID) -&gt; (), checkBoxTapped: (Foundation.UUID) -&gt; (), deleteCurrentTicket: () -&gt; (), getRealTimeTicketCount: () -&gt; Swift.Int, pushToDetailScreen: (Foundation.UUID, Foundation.IndexPath) -&gt; (), getSubTickets: (Foundation.UUID) -&gt; Swift.Array&lt;Modularize.TicketModel&gt;) -&gt; ()"
+                  moduleName = "Modularize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/development/IOS%20DEV/Modularize/Modularize/View/TicketCard.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "868">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3BCA809D-D274-42B6-868B-C68195863898"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modularize/View/TicketCard.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7AA794F0-34A6-4A9B-B73B-934495C29CB7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modularize/View/TicketCard.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

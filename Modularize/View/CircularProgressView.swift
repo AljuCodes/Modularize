@@ -17,7 +17,7 @@ class CircularProgressBarView: UIView {
     
     private let percentageLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = K.Color.primary
         label.font = .systemFont(ofSize: 11, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -70,9 +70,9 @@ class CircularProgressBarView: UIView {
             // ui edits
             circleLayer.fillColor = UIColor.clear.cgColor
             circleLayer.lineCap = .round
-            circleLayer.lineWidth = 10.0
+            circleLayer.lineWidth = 9.0
             circleLayer.strokeEnd = 1
-            circleLayer.strokeColor = UIColor.black.cgColor
+        circleLayer.strokeColor = K.Color.secondary.cgColor
             // added circleLayer to layer
             layer.addSublayer(circleLayer)
            

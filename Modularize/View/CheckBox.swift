@@ -21,11 +21,10 @@ open class CheckBox: UIControl {
     
     var checkmarkSize: CGFloat = 0.5
     
-    var uncheckedBorderColor: UIColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+    var uncheckedBorderColor : UIColor = K.Color.primary
+    var checkedBorderColor: UIColor = K.Color.primary
     
-    var checkedBorderColor: UIColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
-    
-    var checkmarkColor: UIColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
+    var checkmarkColor: UIColor = K.Color.primary
     
     var checkboxBackgroundColor: UIColor! = .white
     
@@ -96,7 +95,7 @@ open class CheckBox: UIControl {
         let newRect = rect.insetBy(dx: borderWidth / 2, dy: borderWidth / 2)
         
         let context = UIGraphicsGetCurrentContext()!
-        context.setStrokeColor(self.isChecked ? checkedBorderColor.cgColor : tintColor.cgColor)
+        context.setStrokeColor(self.isChecked ? checkedBorderColor.cgColor : uncheckedBorderColor.cgColor)
         context.setFillColor(checkboxBackgroundColor.cgColor)
         context.setLineWidth(borderWidth)
         

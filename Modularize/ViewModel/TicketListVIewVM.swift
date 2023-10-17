@@ -99,16 +99,30 @@ final class TicketListViewVM {
         let item = tickets[index]
         
         let subTickets = getSubTickets(id)
-        tickets.removeAll{ tm in
-            tm.superId == id
-
+        if(subTickets.isEmpty){
+            tickets.removeAll{ tm in
+                if(tm.id == id){
+                    print("deleted ticket title is \(tm.title)")
+                }
+                return tm.id == id
+            }
+            context.delete(item)
+            saveContext()
+        } else {
+            subTickets.forEach{ ST in
+                deleteTicket(ST.id) // remove subticket's subtickets
+            }
+            deleteTicket(id)
         }
-        subTickets.forEach{ ST in
-            context.delete(ST)
+        printTickets()
+    }
+    
+    public func printTickets(){
+        print("**********")
+        tickets.forEach{ tm in
+            print(tm.title)
         }
-        tickets.remove(at: index)
-        context.delete(item)
-        saveContext()
+        print("##########")
     }
     
     public func getSuperTickets() -> [TicketModel] {

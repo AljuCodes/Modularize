@@ -20,6 +20,10 @@ class TicketCollectionView: UIView, UICollectionViewDelegate {
             TicketCardCell.self,
             forCellWithReuseIdentifier: TicketCardCell.cellIdentifier
         )
+        cv.register(
+            NoTicketPlaceHolder.self,
+            forCellWithReuseIdentifier: NoTicketPlaceHolder.cellIdentifier
+        )
         cv.isScrollEnabled = false
         return cv
     }()
@@ -27,6 +31,8 @@ class TicketCollectionView: UIView, UICollectionViewDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
+
+        collectionView.backgroundColor = .clear
         addSubview(collectionView)
         addConstraints()
     }
@@ -43,7 +49,7 @@ class TicketCollectionView: UIView, UICollectionViewDelegate {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize:  NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(0.8)
+                heightDimension: .fractionalHeight(0.82)
             ),
             subitems: [item]
         )

@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Set for app
+             UINavigationBar.appearance().tintColor = .white
         return true
     }
 
@@ -57,3 +58,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+
+
+
+class MUILabel: UILabel {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+    
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}

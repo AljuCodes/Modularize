@@ -20,7 +20,7 @@ class TicketTVC : UITableViewCell {
     
     private let titleLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = K.Color.primary
         label.font = .systemFont(ofSize: 16, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.lineBreakMode = .byTruncatingTail
@@ -41,25 +41,15 @@ class TicketTVC : UITableViewCell {
     let deleteButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(systemName:"trash")
+        let image = UIImage(systemName:"trash")?.withTintColor(K.Color.primary, renderingMode: .alwaysOriginal)
         button.setImage(image, for: .normal)
         button.setImage(UIImage(systemName: "trash.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .selected)
+        
         button.frame.size = CGSize(width: 40, height: 40)
         button.imageView?.contentMode = .scaleToFill
         button.isUserInteractionEnabled = true
         return button
     }()
-    
-//    let arrowButton: UIButton = {
-//        let button = UIButton()
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        let image = UIImage(systemName:"chevron.right")
-//        button.setImage(image, for: .normal)
-//        button.frame.size = CGSize(width: 40, height: 40)
-//        button.imageView?.contentMode = .scaleToFill
-//        button.isHidden = true
-//        return button
-//    }()
     
     
     @objc
@@ -68,7 +58,6 @@ class TicketTVC : UITableViewCell {
         print("button was tapped")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            // After half a second, set isSelected back to false
             sender.isSelected = false
         }
         showToast?()
@@ -79,17 +68,13 @@ class TicketTVC : UITableViewCell {
         
       print("button was double tapped")
         deleteTicket?()
+        
     }
     
     private let containerView: UIView = {
         // wrapper to contain all the subviews for the UITableViewCell
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-//        view.isUserInteractionEnabled = false
-        view.layer.borderColor = UIColor.systemBlue.cgColor
-        view.layer.borderWidth = 2
-//        view.layer.
-        
         return view
     }()
     
@@ -98,14 +83,14 @@ class TicketTVC : UITableViewCell {
         let cb = CheckBox()
         cb.frame.size = CGSize(width: 40, height: 40)
         cb.translatesAutoresizingMaskIntoConstraints = false
-//        cb.backgroundColor = .magenta
         return cb
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
-//        isUserInteractionEnabled = false
+        
+
         contentView.addSubviews(
             containerView
         )
@@ -114,8 +99,6 @@ class TicketTVC : UITableViewCell {
             ,
             deleteButton,
             checkBox
-//            ,
-//            arrowButton
         )
         addConstraint()
         checkBox.setOnTap {
@@ -137,28 +120,25 @@ class TicketTVC : UITableViewCell {
         deleteTicket: @escaping ()-> Void,
         onCheckBoxTapped: @escaping ()-> Void,
         pushToDetailScreen: @escaping ()-> Void
-//        isCheckBoxShown: @escaping () -> Bool
     ){
         self.showToast = showToast
         self.deleteTicket = deleteTicket
         self.onCheckBoxTapped = onCheckBoxTapped
         self.pushToDetailScreen = pushToDetailScreen
         checkBox.isChecked = tm.isDone
-        titleLabel.text = tm.title
-//        if(isCheckBoxShown()){
-//            arrowButton.isHidden = true
-//            checkBox.isHidden = false
-//        } else {
-//            arrowButton.isHidden = false
-//            checkBox.isHidden = true
-//            
-//        }
+        if checkBox.isChecked {
+            titleLabel.attributedText = tm.title.strikeThrough()
+            titleLabel.textColor = K.Color.secondary
+        } else {
+            titleLabel.attributedText = .none
+            titleLabel.text = tm.title
+            titleLabel.textColor = K.Color.primary
+        }
     }
     
 
     
     public func addConstraint(){
-//        contentView.addConstraintsToFullScreen(to: containerView)
         NSLayoutConstraint.activate([
             
             checkBox.widthAnchor.constraint(equalToConstant: 40),
@@ -182,8 +162,6 @@ class TicketTVC : UITableViewCell {
             
             deleteButton.trailingAnchor.constraint(equalTo: checkBox.leadingAnchor, constant: -6),
 //            deleteButton.trailingAnchor.constraint(equalTo: arrowButton.leadingAnchor, constant: -6),
-            
-            
 //            deleteButton.trailingAnchor.constraint(equalTo: checkBox.leadingAnchor),
             deleteButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             checkBox.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
@@ -193,6 +171,12 @@ class TicketTVC : UITableViewCell {
             checkBox.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
 //            arrowButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
         ])
+    }
+    override func prepareForReuse() {
+        self.onCheckBoxTapped = nil
+        self.deleteTicket = nil
+        self.pushToDetailScreen = nil
+        self.showToast =  nil
     }
     
     required init?(coder: NSCoder) {
@@ -204,3 +188,13 @@ class TicketTVC : UITableViewCell {
 
 
 
+extension String {
+    func strikeThrough() -> NSAttributedString {
+        let attributeString =  NSMutableAttributedString(string: self)
+        attributeString.addAttribute(
+            NSAttributedString.Key.strikethroughStyle,
+               value: NSUnderlineStyle.single.rawValue,
+                   range:NSMakeRange(0,attributeString.length))
+        return attributeString
+    }
+}
