@@ -26,7 +26,7 @@
 		CE6073132ABC1F54002349B9 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6073122ABC1F54002349B9 /* CircularProgressView.swift */; };
 		CE6073152ABC2146002349B9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6073142ABC2146002349B9 /* Extensions.swift */; };
 		CE60731B2ABC7B88002349B9 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60731A2ABC7B88002349B9 /* CheckBox.swift */; };
-		CE60731D2ABC8234002349B9 /* sdfks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60731C2ABC8234002349B9 /* sdfks.swift */; };
+		CE60731D2ABC8234002349B9 /* Privacy Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60731C2ABC8234002349B9 /* Privacy Policy.swift */; };
 		CE754CF62ACC058900CBFDD5 /* SubTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE754CF52ACC058900CBFDD5 /* SubTicketVC.swift */; };
 		CEE09D832ABD6C0300E11DFD /* TicketTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE09D822ABD6C0300E11DFD /* TicketTVC.swift */; };
 		CEE09D852ABF381900E11DFD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE09D842ABF381900E11DFD /* Constants.swift */; };
@@ -73,7 +73,7 @@
 		CE6073122ABC1F54002349B9 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		CE6073142ABC2146002349B9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CE60731A2ABC7B88002349B9 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
-		CE60731C2ABC8234002349B9 /* sdfks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sdfks.swift; sourceTree = "<group>"; };
+		CE60731C2ABC8234002349B9 /* Privacy Policy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Privacy Policy.swift"; sourceTree = "<group>"; };
 		CE754CF52ACC058900CBFDD5 /* SubTicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTicketVC.swift; sourceTree = "<group>"; };
 		CEE09D822ABD6C0300E11DFD /* TicketTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketTVC.swift; sourceTree = "<group>"; };
 		CEE09D842ABF381900E11DFD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		CE6072C72ABAC888002349B9 = {
 			isa = PBXGroup;
 			children = (
-				CE60731C2ABC8234002349B9 /* sdfks.swift */,
+				CE60731C2ABC8234002349B9 /* Privacy Policy.swift */,
 				CE6072D22ABAC888002349B9 /* Modularize */,
 				CE6072E92ABAC889002349B9 /* ModularizeTests */,
 				CE6072F32ABAC889002349B9 /* ModularizeUITests */,
@@ -355,7 +355,7 @@
 				CE60730B2ABB408F002349B9 /* TicketTableVIew.swift in Sources */,
 				CE6073052ABAC99D002349B9 /* TicketModel.swift in Sources */,
 				CE0B9FB02AD035B60018B962 /* TicketModel+CoreDataClass.swift in Sources */,
-				CE60731D2ABC8234002349B9 /* sdfks.swift in Sources */,
+				CE60731D2ABC8234002349B9 /* Privacy Policy.swift in Sources */,
 				CE6073152ABC2146002349B9 /* Extensions.swift in Sources */,
 				CE6072D42ABAC888002349B9 /* AppDelegate.swift in Sources */,
 				CE6073092ABB37E9002349B9 /* TicketCard.swift in Sources */,
