@@ -909,5 +909,68 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F74DF449-5997-4E99-8316-849535309133"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modularize/View/TicketTableVIew.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "createHorizontalLayout()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F74DF449-5997-4E99-8316-849535309133 - bf96d394f71337fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Modularize.TicketCollectionView.createHorizontalLayout() -&gt; __C.NSCollectionLayoutSection"
+                  moduleName = "Modularize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/development/IOS%20DEV/Modularize/Modularize/View/TicketTableVIew.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "504">
+               </Location>
+               <Location
+                  uuid = "F74DF449-5997-4E99-8316-849535309133 - bf96d394f71337fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Modularize.TicketCollectionView.createHorizontalLayout() -&gt; __C.NSCollectionLayoutSection"
+                  moduleName = "Modularize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/development/IOS%20DEV/Modularize/Modularize/View/TicketTableVIew.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "492">
+               </Location>
+               <Location
+                  uuid = "F74DF449-5997-4E99-8316-849535309133 - bf96d394f7133739"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Modularize.TicketCollectionView.createHorizontalLayout() -&gt; __C.NSCollectionLayoutSection"
+                  moduleName = "Modularize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/development/IOS%20DEV/Modularize/Modularize/View/TicketTableVIew.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "560">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

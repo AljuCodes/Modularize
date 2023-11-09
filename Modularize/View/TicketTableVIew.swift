@@ -44,14 +44,21 @@ class TicketCollectionView: UIView, UICollectionViewDelegate {
                 heightDimension: .fractionalHeight(1.0)
             )
         )
-        item.contentInsets = NSDirectionalEdgeInsets(top: 100, leading: 10, bottom: 10, trailing: 10)
         
+        let isIphone = UIDevice.isiPhone
+        let items = if  isIphone {
+            [item]
+        }else {
+             [item, item]
+        }
+        let topInsets = isIphone ? 100.0 : 200.0
+        item.contentInsets = NSDirectionalEdgeInsets(top: topInsets , leading: 10, bottom: 10, trailing: 10)
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize:  NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(0.82)
+                widthDimension: .fractionalWidth(isIphone ? 1 : 0.5),
+                heightDimension: .fractionalHeight(isIphone ? 0.82 : 0.7)
             ),
-            subitems: [item]
+            subitems: items
         )
         
         let section = NSCollectionLayoutSection(group: group)
